@@ -1,0 +1,24 @@
+{
+  "name": "peg-study-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "vuepress": "^1.9.7",
+    "vuepress-types": "^0.9.4"
+  },
+  "author": "Shinichiro MORI",
+  "license": "MIT",
+  "keywords": [
+    "peg"
+  ],
+  "homepage": "https://github.com/smori1983/peg-study-demo#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smori1983/peg-study-demo.git"
+  }
+}

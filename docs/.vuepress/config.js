@@ -13,6 +13,7 @@ module.exports = {
   },
 
   plugins: [
+    [require('./plugins/ast-demo')],
   ],
 
   markdown: {

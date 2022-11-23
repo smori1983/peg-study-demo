@@ -9,6 +9,14 @@ module.exports = {
       { text: 'GitHub', link: 'https://github.com/smori1983/peg-study-demo' },
     ],
     sidebar: [
+      {
+        title: 'D3 demo',
+        collapsable: false,
+        sidebarDepth: 0,
+        children: [
+          '/ast-demo01.md',
+        ],
+      }
     ],
   },
 

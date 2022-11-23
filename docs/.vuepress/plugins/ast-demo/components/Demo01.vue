@@ -16,7 +16,7 @@ export default {
 
 <style lang="stylus" scoped>
 .demo {
-  width 600px
+  width 100%
   height 300px
   border 1px solid black
 

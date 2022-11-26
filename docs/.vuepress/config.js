@@ -16,12 +16,21 @@ module.exports = {
         children: [
           '/ast-demo01.md',
         ],
-      }
+      },
+      {
+        title: 'Calc',
+        collapsable: false,
+        sidebarDepth: 0,
+        children: [
+          '/calc01.md',
+        ],
+      },
     ],
   },
 
   plugins: [
     [require('./plugins/ast-demo')],
+    [require('./plugins/calc')],
   ],
 
   markdown: {

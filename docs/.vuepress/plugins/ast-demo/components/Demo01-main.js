@@ -49,7 +49,7 @@ export function run(element) {
   const height = element.clientHeight;
 
   const graphClearance = 50;
-  const fontSize = 15;
+  const fontSize = 20;
   const pathClearance = 5;
 
   const root = hierarchy.hierarchy(data);

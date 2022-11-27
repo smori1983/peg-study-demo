@@ -34,6 +34,9 @@
 import { Tabs, Tab } from 'vue-tabs-component';
 import * as parser from 'peg/src/calc/calc1';
 import * as tdFactorize from 'peg/src/calc/visitor/td-factorize';
+import * as buAdd0 from 'peg/src/calc/visitor/bu-add-0';
+import * as buMulti0 from 'peg/src/calc/visitor/bu-multi-0';
+import * as buMulti1 from 'peg/src/calc/visitor/bu-multi-1';
 import * as d3 from './Calc01-d3';
 
 export default {
@@ -80,6 +83,9 @@ export default {
         this.ast = JSON.stringify(ast1, null, 4);
 
         tdFactorize.visit(ast2);
+        buMulti0.visit(ast2);
+        buMulti1.visit(ast2);
+        buAdd0.visit(ast2);
 
         d3.prepare(ast1);
         d3.prepare(ast2);

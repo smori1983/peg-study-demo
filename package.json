@@ -15,7 +15,7 @@
     "d3-hierarchy": "^3.1.2",
     "d3-selection": "^3.0.0",
     "http-server": "^14.1.1",
-    "peg": "github:smori1983/peg-study#19e136d53f6318809817b0da032cb0a4f51c7cca",
+    "peg": "github:smori1983/peg-study#f3a5c48917c0c6affc510f9a730f7468664b5189",
     "vuepress": "^1.9.7",
     "vuepress-types": "^0.9.4"
   },

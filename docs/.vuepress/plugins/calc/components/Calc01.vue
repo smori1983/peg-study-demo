@@ -26,6 +26,12 @@
           <pre>{{ ast }}</pre>
         </div>
       </tab>
+      <tab name="Digest">
+        <div class="digest">
+          <pre>{{ digestCompact }}</pre>
+          <pre>{{ digestPretty }}</pre>
+        </div>
+      </tab>
     </tabs>
   </div>
 </template>
@@ -37,6 +43,7 @@ import * as tdFactorize from 'peg/src/calc/visitor/td-factorize';
 import * as buAdd0 from 'peg/src/calc/visitor/bu-add-0';
 import * as buMulti0 from 'peg/src/calc/visitor/bu-multi-0';
 import * as buMulti1 from 'peg/src/calc/visitor/bu-multi-1';
+import * as subtreeHelper from 'peg/src/calc/helper/subtree';
 import * as d3 from './Calc01-d3';
 
 export default {
@@ -49,6 +56,8 @@ export default {
     return {
       input: '(1 + 2) * (7 + 9) + (3 + 4) * (7 + 9)',
       ast: '',
+      digestCompact: '',
+      digestPretty: '',
       tabsOptions: {
         useUrlFragment: false,
         defaultTabHash: 'editor-tab-graph',
@@ -80,7 +89,11 @@ export default {
         const ast1 = parser.parse(this.input.trim());
         const ast2 = parser.parse(this.input.trim());
 
-        this.ast = JSON.stringify(ast1, null, 4);
+        this.ast = JSON.stringify(ast1, null, 2);
+
+        const digest = subtreeHelper.getDigest(ast1);
+        this.digestCompact = JSON.stringify(digest);
+        this.digestPretty = JSON.stringify(digest, null, 2);
 
         tdFactorize.visit(ast2);
         buMulti0.visit(ast2);
@@ -170,6 +183,12 @@ export default {
   }
 }
 .ast {
+  pre {
+    background-color lightgray
+    font-size 12px
+  }
+}
+.digest {
   pre {
     background-color lightgray
     font-size 12px

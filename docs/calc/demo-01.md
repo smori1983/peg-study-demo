@@ -1,3 +1,3 @@
-## Calc demo
+# Calc demo
 
-<Calc01/>
+<CalcCalc01/>

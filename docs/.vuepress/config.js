@@ -23,6 +23,7 @@ module.exports = {
         sidebarDepth: 0,
         children: [
           '/calc/demo-01.md',
+          '/calc/digest-01.md',
         ],
       },
     ],

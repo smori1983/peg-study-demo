@@ -80,7 +80,7 @@ export default {
         const ast1 = parser.parse(this.input.trim());
         const ast2 = parser.parse(this.input.trim());
 
-        this.ast = JSON.stringify(ast1, null, 2);
+        this.ast = JSON.stringify(ast1, null, 4);
 
         tdFactorize.visit(ast2);
         buMulti0.visit(ast2);

@@ -88,7 +88,7 @@ export default {
         const input1Ast = parser.parse(this.input1.trim());
         const input1Digest = subtreeHelper.getDigest(input1Ast);
 
-        this.input1Pretty = JSON.stringify(input1Digest, null, 2);
+        this.input1Pretty = JSON.stringify(input1Digest, null, 4);
         this.input1Compact = JSON.stringify(input1Digest);
       } catch (e) {
         this.input1Pretty = '';
@@ -101,7 +101,7 @@ export default {
         const input2Ast = parser.parse(this.input2.trim());
         const input2Digest = subtreeHelper.getDigest(input2Ast);
 
-        this.input2Pretty = JSON.stringify(input2Digest, null, 2);
+        this.input2Pretty = JSON.stringify(input2Digest, null, 4);
         this.input2Compact = JSON.stringify(input2Digest);
       } catch (e) {
         this.input2Pretty = '';

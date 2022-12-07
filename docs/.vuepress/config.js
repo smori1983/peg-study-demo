@@ -22,7 +22,7 @@ module.exports = {
         collapsable: false,
         sidebarDepth: 0,
         children: [
-          '/calc01.md',
+          '/calc/demo-01.md',
         ],
       },
     ],

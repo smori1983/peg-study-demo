@@ -172,7 +172,7 @@ export default {
 .ast {
   pre {
     background-color lightgray
-    font-size 12px
+    color black
   }
 }
 </style>

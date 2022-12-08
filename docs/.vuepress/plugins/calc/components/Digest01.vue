@@ -128,7 +128,9 @@ export default {
     margin-bottom 10px
 
     .input {
-      width 100%
+      min-width 100%
+      max-width 100%
+      min-height 3rem
     }
   }
 

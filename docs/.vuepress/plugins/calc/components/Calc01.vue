@@ -105,7 +105,9 @@ export default {
 
 <style lang="stylus" scoped>
 .input {
-  width 100%
+  min-width 100%
+  max-width 100%
+  min-height 3rem
 }
 .tabs-component {
   margin 0

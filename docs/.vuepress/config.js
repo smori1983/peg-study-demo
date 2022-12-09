@@ -10,20 +10,20 @@ module.exports = {
     ],
     sidebar: [
       {
-        title: 'D3 demo',
-        collapsable: false,
-        sidebarDepth: 0,
-        children: [
-          '/ast-demo01.md',
-        ],
-      },
-      {
         title: 'Calc',
         collapsable: false,
         sidebarDepth: 0,
         children: [
           '/calc/demo-01.md',
           '/calc/digest-01.md',
+        ],
+      },
+      {
+        title: 'D3 demo',
+        collapsable: false,
+        sidebarDepth: 0,
+        children: [
+          '/ast-demo01.md',
         ],
       },
     ],

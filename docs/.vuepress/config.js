@@ -18,19 +18,10 @@ module.exports = {
           '/calc/digest-01.md',
         ],
       },
-      {
-        title: 'D3 demo',
-        collapsable: false,
-        sidebarDepth: 0,
-        children: [
-          '/ast-demo01.md',
-        ],
-      },
     ],
   },
 
   plugins: [
-    [require('./plugins/ast-demo')],
     [require('./plugins/calc')],
   ],
 

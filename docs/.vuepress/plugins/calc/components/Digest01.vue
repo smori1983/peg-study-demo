@@ -38,7 +38,7 @@
 <script>
 import { Tabs, Tab } from 'vue-tabs-component';
 import * as parser from 'peg/src/calc/calc1';
-import * as subtreeHelper from 'peg/src/calc/helper/subtree';
+import * as digest from 'peg/src/calc/helper/digest';
 
 export default {
   components: {
@@ -86,7 +86,7 @@ export default {
     draw1() {
       try {
         const input1Ast = parser.parse(this.input1.trim());
-        const input1Digest = subtreeHelper.getDigest(input1Ast);
+        const input1Digest = digest.get(input1Ast);
 
         this.input1Pretty = JSON.stringify(input1Digest, null, 4);
         this.input1Compact = JSON.stringify(input1Digest);
@@ -99,7 +99,7 @@ export default {
     draw2() {
       try {
         const input2Ast = parser.parse(this.input2.trim());
-        const input2Digest = subtreeHelper.getDigest(input2Ast);
+        const input2Digest = digest.get(input2Ast);
 
         this.input2Pretty = JSON.stringify(input2Digest, null, 4);
         this.input2Compact = JSON.stringify(input2Digest);

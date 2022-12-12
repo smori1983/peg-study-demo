@@ -1,3 +1,3 @@
-# Compare subtree digest
+# Compare digests
 
 <CalcDigest01/>

@@ -15,7 +15,7 @@
     "d3-hierarchy": "^3.1.2",
     "d3-selection": "^3.0.0",
     "http-server": "^14.1.1",
-    "peg": "github:smori1983/peg-study#13539f4d0e20ee21c0392dec2a7c8c631ae24891",
+    "peg": "github:smori1983/peg-study#e045cd6a427cd825edd75f08755c4425ab34ec70",
     "vue-tabs-component": "^1.5.0",
     "vuepress": "^1.9.7",
     "vuepress-types": "^0.9.4"

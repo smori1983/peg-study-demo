@@ -1,7 +1,13 @@
 <template>
   <div>
-    <div>
-      <textarea class="input" v-model="input"></textarea>
+    <div class="top">
+      <div class="box">
+        <textarea class="input" v-model="input"></textarea>
+      </div>
+      <div class="box">
+        <div class="label">Final expression</div>
+        <div class="infix-notation">{{ infixNotation }}</div>
+      </div>
     </div>
 
     <tabs
@@ -37,6 +43,7 @@ import * as tdFactorize from 'peg/src/calc/visitor/td-factorize';
 import * as buAdd0 from 'peg/src/calc/visitor/bu-add-0';
 import * as buMulti0 from 'peg/src/calc/visitor/bu-multi-0';
 import * as buMulti1 from 'peg/src/calc/visitor/bu-multi-1';
+import * as infixNotation from 'peg/src/calc/helper/infix-notation';
 import * as d3 from './Calc01-d3';
 
 export default {
@@ -48,6 +55,7 @@ export default {
   data() {
     return {
       input: '(1 + 2) * (7 + 9) + (3 + 4) * (7 + 9)',
+      infixNotation: '',
       ast: '',
       tabsOptions: {
         useUrlFragment: false,
@@ -87,6 +95,8 @@ export default {
         buMulti1.visit(ast2);
         buAdd0.visit(ast2);
 
+        this.infixNotation = infixNotation.get(ast2);
+
         d3.prepare(ast1);
         d3.prepare(ast2);
 
@@ -96,6 +106,8 @@ export default {
         d3.run(this.$refs['ast-01'], ast1);
         d3.run(this.$refs['ast-02'], ast2);
       } catch (e) {
+        this.infixNotation = '';
+
         console.log(e.message);
       }
     },
@@ -104,10 +116,23 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.input {
-  min-width 100%
-  max-width 100%
-  min-height 3rem
+.top {
+  .box {
+    margin-bottom 1rem
+  }
+  .label {
+    margin-bottom 0.5rem
+    font-weight bold
+  }
+  .input {
+    min-width 100%
+    max-width 100%
+    min-height 3rem
+  }
+  .infix-notation {
+    min-height 2rem
+    font-family monospace
+  }
 }
 .tabs-component {
   margin 0

@@ -1,12 +1,13 @@
 <template>
   <div>
-    <div class="input-area">
-      <div class="box1">
+    <div class="top">
+      <div class="box">
         <textarea class="input" v-model="input1"></textarea>
         <textarea class="input" v-model="input2"></textarea>
       </div>
-      <div class="box2">
-        <span>Evaluation result: </span><span class="result">{{ result }}</span>
+      <div class="box">
+        <div class="label">Evaluation result</div>
+        <div class="result">{{ result }}</div>
       </div>
     </div>
 
@@ -121,23 +122,21 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.input-area {
-  margin-bottom 20px
-
-  .box1 {
-    margin-bottom 10px
-
-    .input {
-      min-width 100%
-      max-width 100%
-      min-height 3rem
-    }
+.top {
+  .box {
+    margin-bottom 1rem
   }
-
-  .box2 {
-    .result {
-      font-weight bold
-    }
+  .label {
+    margin-bottom 0.5rem
+    font-weight bold
+  }
+  .input {
+    min-width 100%
+    max-width 100%
+    min-height 3rem
+  }
+  .result {
+    min-height 2rem
   }
 }
 .tabs-component {

@@ -44,7 +44,7 @@ import * as buAdd0 from 'peg/src/calc/visitor/bu-add-0';
 import * as buMulti0 from 'peg/src/calc/visitor/bu-multi-0';
 import * as buMulti1 from 'peg/src/calc/visitor/bu-multi-1';
 import * as infixNotation from 'peg/src/calc/helper/infix-notation';
-import * as d3 from './Calc01-d3';
+import * as d3Ast from './d3-ast';
 
 export default {
   components: {
@@ -97,14 +97,14 @@ export default {
 
         this.infixNotation = infixNotation.get(ast2);
 
-        d3.prepare(ast1);
-        d3.prepare(ast2);
+        d3Ast.prepare(ast1);
+        d3Ast.prepare(ast2);
 
-        d3.clear(this.$refs['ast-01']);
-        d3.clear(this.$refs['ast-02']);
+        d3Ast.clear(this.$refs['ast-01']);
+        d3Ast.clear(this.$refs['ast-02']);
 
-        d3.run(this.$refs['ast-01'], ast1);
-        d3.run(this.$refs['ast-02'], ast2);
+        d3Ast.run(this.$refs['ast-01'], ast1);
+        d3Ast.run(this.$refs['ast-02'], ast2);
       } catch (e) {
         this.infixNotation = '';
 

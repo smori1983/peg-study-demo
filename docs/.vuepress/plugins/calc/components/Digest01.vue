@@ -17,7 +17,7 @@
       @changed="tabChanged"
     >
       <tab name="Pretty">
-        <div class="output-pretty">
+        <div class="side-by-side">
           <div class="left">
             <pre>{{ input1Pretty }}</pre>
           </div>
@@ -27,9 +27,19 @@
         </div>
       </tab>
       <tab name="Compact">
-        <div class="output-compact">
+        <div class="">
           <pre>{{ input1Compact }}</pre>
           <pre>{{ input2Compact }}</pre>
+        </div>
+      </tab>
+      <tab name="AST">
+        <div class="side-by-side">
+          <div class="left">
+            <svg class="ast-graph" ref="ast-01"></svg>
+          </div>
+          <div class="right">
+            <svg class="ast-graph" ref="ast-02"></svg>
+          </div>
         </div>
       </tab>
     </tabs>
@@ -40,6 +50,7 @@
 import { Tabs, Tab } from 'vue-tabs-component';
 import * as parser from 'peg/src/calc/calc1';
 import * as digest from 'peg/src/calc/helper/digest';
+import * as d3Ast from './d3-ast';
 
 export default {
   components: {
@@ -82,6 +93,12 @@ export default {
 
   methods: {
     tabChanged(selectedTab) {
+      if (selectedTab.tab.name === 'AST') {
+        this.$nextTick(() => {
+          this.draw1();
+          this.draw2();
+        });
+      }
     },
 
     draw1() {
@@ -91,6 +108,10 @@ export default {
 
         this.input1Pretty = JSON.stringify(input1Digest, null, 4);
         this.input1Compact = JSON.stringify(input1Digest);
+
+        d3Ast.prepare(input1Ast);
+        d3Ast.clear(this.$refs['ast-01']);
+        d3Ast.run(this.$refs['ast-01'], input1Ast);
       } catch (e) {
         this.input1Pretty = '';
         this.input1Compact = '';
@@ -104,6 +125,10 @@ export default {
 
         this.input2Pretty = JSON.stringify(input2Digest, null, 4);
         this.input2Compact = JSON.stringify(input2Digest);
+
+        d3Ast.prepare(input2Ast);
+        d3Ast.clear(this.$refs['ast-02']);
+        d3Ast.run(this.$refs['ast-02'], input2Ast);
       } catch (e) {
         this.input2Pretty = '';
         this.input2Compact = '';
@@ -177,7 +202,7 @@ export default {
     padding 0
   }
 }
-.output-pretty {
+.side-by-side {
   display flex
 
   .left {
@@ -196,5 +221,16 @@ export default {
 pre {
   background-color lightgray
   color black
+}
+.ast-graph {
+  margin 0 1px
+  width calc(100% - 4px)
+  height 400px
+  border 1px solid black
+
+  >>> .link {
+    stroke gray
+    stroke-width 0.5px
+  }
 }
 </style>

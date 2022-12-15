@@ -1,3 +1,0 @@
-# Calc demo
-
-<CalcCalc01/>

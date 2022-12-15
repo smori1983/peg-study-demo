@@ -11,7 +11,7 @@ module.exports = {
         collapsable: false,
         sidebarDepth: 0,
         children: [
-          '/calc/demo-01.md',
+          '/calc/term-rewriting-01.md',
           '/calc/digest-01.md',
         ],
       },

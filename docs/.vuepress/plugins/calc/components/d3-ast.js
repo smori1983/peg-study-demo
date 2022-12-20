@@ -10,7 +10,7 @@ export function prepare(data) {
 }
 
 const prepareVisit = (data) => {
-  if (data.type === 'number') {
+  if (['number', 'variable'].includes(data.type)) {
     data.children = [];
   } else {
     data.children.forEach((child) => {

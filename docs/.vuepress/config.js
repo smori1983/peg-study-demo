@@ -13,6 +13,7 @@ module.exports = {
         children: [
           '/calc/term-rewriting-01.md',
           '/calc/digest-01.md',
+          '/calc/variable-01.md',
         ],
       },
     ],

@@ -8,6 +8,7 @@ module.exports = {
     sidebar: [
       {
         title: 'Calc',
+        path: '/calc/',
         collapsable: false,
         sidebarDepth: 0,
         children: [

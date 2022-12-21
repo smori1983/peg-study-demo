@@ -18,7 +18,7 @@
       :options="tabsOptions"
       @changed="tabChanged"
     >
-      <tab name="Graph">
+      <tab name="AST">
         <div class="side-by-side">
           <div class="left">
             <svg class="ast-graph" ref="ast-01"></svg>
@@ -68,7 +68,7 @@ export default {
 
   methods: {
     tabChanged(selectedTab) {
-      if (selectedTab.tab.name === 'Graph') {
+      if (selectedTab.tab.name === 'AST') {
         this.$nextTick(() => {
           this.draw();
         });

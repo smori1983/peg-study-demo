@@ -29,7 +29,7 @@ module.exports = {
   },
 
   plugins: [
-    [require('./plugins/calc')],
+    [require('./plugins/peg')],
   ],
 
   markdown: {

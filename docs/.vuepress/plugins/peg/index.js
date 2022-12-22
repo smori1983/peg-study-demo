@@ -8,7 +8,7 @@ const path = require('path');
  * @return {PluginOptionAPI}
  */
 module.exports = () => ({
-  name: 'calc',
+  name: 'peg',
 
   enhanceAppFiles: path.resolve(__dirname, 'enhanceAppFile.js'),
 });

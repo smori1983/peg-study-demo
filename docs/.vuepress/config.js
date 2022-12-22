@@ -23,6 +23,7 @@ module.exports = {
         collapsable: false,
         sidebarDepth: 0,
         children: [
+          '/method/method-01.md',
         ],
       },
     ],

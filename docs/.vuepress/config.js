@@ -17,6 +17,14 @@ module.exports = {
           '/calc/variable-01.md',
         ],
       },
+      {
+        title: 'Method',
+        path: '/method/',
+        collapsable: false,
+        sidebarDepth: 0,
+        children: [
+        ],
+      },
     ],
   },
 

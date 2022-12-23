@@ -39,7 +39,7 @@ export default {
 
   data() {
     return {
-      input: 'value.foo("abc", 123, true).bar("abc", value2.trim(10, "..."))',
+      input: 'value.foo(123, 0.9, true).bar("abc", value2.trim(10, "..."))',
       astJson: '',
       tabsOptions: {
         useUrlFragment: false,

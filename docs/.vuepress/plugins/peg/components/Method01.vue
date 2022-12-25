@@ -15,10 +15,12 @@
       <tab name="AST">
         <div class="side-by-side">
           <div class="left">
-            <svg class="ast-graph" ref="ast-01"></svg>
+            <svg class="ast-graph" ref="format2-ast"></svg>
+            <pre>{{ format2Json }}</pre>
           </div>
           <div class="right">
-            <pre>{{ astJson }}</pre>
+            <svg class="ast-graph" ref="format3-ast"></svg>
+            <pre>{{ format3Json }}</pre>
           </div>
         </div>
       </tab>
@@ -28,7 +30,8 @@
 
 <script>
 import { Tabs, Tab } from 'vue-tabs-component';
-import * as parser from 'peg/src/method/format2';
+import * as format2Parser from 'peg/src/method/format2';
+import * as format3Parser from 'peg/src/method/format3';
 import * as d3Ast from './d3-ast';
 
 export default {
@@ -39,8 +42,9 @@ export default {
 
   data() {
     return {
-      input: 'value.foo(123, 0.9, true).bar("abc", value2.trim(10, "..."))',
-      astJson: '',
+      input: 'data.data1.foo("abc", 123, 0.9, true).bar(input.trim(10, config.trimText.type1))',
+      format2Json: '',
+      format3Json: '',
       tabsOptions: {
         useUrlFragment: false,
         defaultTabHash: '',
@@ -50,7 +54,8 @@ export default {
 
   watch: {
     input() {
-      this.draw();
+      this.drawFormat2();
+      this.drawFormat3();
     },
   },
 
@@ -58,25 +63,43 @@ export default {
     tabChanged(selectedTab) {
       if (selectedTab.tab.name === 'AST') {
         this.$nextTick(() => {
-          this.draw();
+          this.drawFormat2();
+          this.drawFormat3();
         });
       }
     },
 
-    draw() {
+    drawFormat2() {
       try {
-        const ast = parser.parse(this.input.trim());
+        const ast = format2Parser.parse(this.input.trim());
 
-        this.astJson = JSON.stringify(ast, null, 2);
+        this.format2Json = JSON.stringify(ast, null, 2);
 
-        d3Ast.clear(this.$refs['ast-01']);
-        d3Ast.run(this.$refs['ast-01'], ast);
+        d3Ast.clear(this.$refs['format2-ast']);
+        d3Ast.run(this.$refs['format2-ast'], ast);
       } catch (e) {
         console.log(e.message);
 
-        this.astJson = '';
+        this.format2Json = '';
 
-        d3Ast.clear(this.$refs['ast-01']);
+        d3Ast.clear(this.$refs['format2-ast']);
+      }
+    },
+
+    drawFormat3() {
+      try {
+        const ast = format3Parser.parse(this.input.trim());
+
+        this.format3Json = JSON.stringify(ast, null, 2);
+
+        d3Ast.clear(this.$refs['format3-ast']);
+        d3Ast.run(this.$refs['format3-ast'], ast);
+      } catch (e) {
+        console.log(e.message);
+
+        this.format3Json = '';
+
+        d3Ast.clear(this.$refs['format3-ast']);
       }
     },
   },

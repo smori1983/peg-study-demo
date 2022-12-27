@@ -18,6 +18,15 @@ module.exports = {
         ],
       },
       {
+        title: 'Condition',
+        path: '/condition/',
+        collapsable: false,
+        sidebarDepth: 0,
+        children: [
+          '/condition/condition-01.md',
+        ],
+      },
+      {
         title: 'Method',
         path: '/method/',
         collapsable: false,

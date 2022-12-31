@@ -24,6 +24,7 @@ module.exports = {
         sidebarDepth: 0,
         children: [
           '/condition/condition-01.md',
+          '/condition/evaluation-01.md',
         ],
       },
       {

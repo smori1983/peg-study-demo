@@ -9,15 +9,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@types/d3-hierarchy": "^3.1.0",
-    "@types/d3-selection": "^3.0.3",
-    "d3": "^7.6.1",
+    "@types/d3-hierarchy": "^3.1.7",
+    "@types/d3-selection": "^3.0.11",
+    "d3": "^7.9.0",
     "d3-hierarchy": "^3.1.2",
     "d3-selection": "^3.0.0",
     "http-server": "^14.1.1",
     "peg": "github:smori1983/peg-study#86d9a756eab38b4e210596fa7d2558b4f6f27c95",
     "vue-tabs-component": "^1.5.0",
-    "vuepress": "^1.9.7",
+    "vuepress": "^1.9.10",
     "vuepress-types": "^0.9.4"
   },
   "author": "Shinichiro MORI",
